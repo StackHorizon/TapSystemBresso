@@ -1,16 +1,14 @@
 <header>
 	<nav>
 		<div class="logo">
-			<img src="./logo.png" alt="Logo Tap System" class="logo-img">
+			<img src="./logo.png" alt="Logo Tap System" class="logo-img" />
 		</div>
 		<div class="contact">
 			<a href="tel:+393513092439" class="call-btn">
 				<img
 					src="https://cdn-icons-png.flaticon.com/512/17910/17910500.png"
 					class="phone-icon"
-					width="32"
-					height="32"
-					alt="phone illustration"
+					alt="phone icon"
 				/>
 				<span class="phone">351 309 2439</span>
 			</a>
@@ -20,10 +18,10 @@
 
 <style>
 	:root {
-		--primary-color: #333; /* Grigio scuro per il testo */
-		--accent-color: #0033f0; /* Blu chiaro per il pulsante */
-		--background-color: #FBFBFB; /* Colore di sfondo chiaro */
-		--hover-color: #357ABD; /* Blu più scuro per hover */
+		--primary-color: #333;
+		--accent-color: #0033f0;
+		--background-color: #FBFBFB;
+		--hover-color: #357ABD;
 		--font-family: 'Roboto', sans-serif;
 	}
 
@@ -32,13 +30,13 @@
 		background-color: var(--background-color);
 		margin: 0;
 		padding: 0;
-		padding-top: 70px;
+		padding-top: 70px; /* Spazio per header */
 	}
 
 	header {
 		background-color: white;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-		padding: 20px 40px;
+		padding: 14px 30px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -46,6 +44,7 @@
 		top: 0;
 		width: 100%;
 		z-index: 1000;
+		min-height: 70px;
 	}
 
 	nav {
@@ -58,38 +57,37 @@
 	}
 
 	.logo-img {
-		max-width: 100%;
+		width: 90px;
 		height: auto;
-		width: 120px;
 	}
 
 	.contact a.call-btn {
-		display: inline-block;
-		font-size: 1.5rem;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 1.1rem;
 		font-weight: 500;
 		color: white;
 		background-color: var(--accent-color);
-		padding: 12px 30px;
-		border-radius: 30px;
+		padding: 10px 24px;
+		border-radius: 26px;
 		text-decoration: none;
-		text-align: center;
 		transition: background-color 0.3s ease;
-		border: 2px solid transparent;
-		display: flex;
-		align-items: center;
-		gap: 10px;
 	}
 
-
-	.phone {
-		font-size: 1.5rem;
-		font-weight: 600;
+	.call-btn:hover {
+		background-color: var(--hover-color);
 	}
 
 	.phone-icon {
-		width: 24px;
-		height: 24px;
-		margin-right: 10px;
+		width: 20px;
+		height: 20px;
+		margin-right: 6px;
+	}
+
+	.phone {
+		font-size: 1.1rem;
+		font-weight: 500;
 	}
 
 	/* Responsive */
@@ -100,23 +98,23 @@
 		}
 
 		.logo-img {
-			width: 100px;
+			width: 80px;
 		}
 
 		.contact {
 			width: 100%;
 			display: flex;
 			justify-content: center;
-			margin-top: 20px;
+			margin-top: 12px;
 		}
 
 		.call-btn {
-			font-size: 1.0rem;
-			padding: 10px 25px;
+			font-size: 1rem;
+			padding: 8px 20px;
 		}
 
 		.phone {
-			font-size: 1.5rem;
+			font-size: 1rem;
 		}
 	}
 </style>

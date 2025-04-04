@@ -1,5 +1,2 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = 'Tap System Bresso';
-export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const SITE_TITLE = 'Tap System - Sostituzione Tapparelle Bresso | Riparazione Tapparelle Elettriche e Assistenza';
+export const SITE_DESCRIPTION = 'Tap System a Bresso offre riparazione tapparelle elettriche e sostituzione tapparelle. Servizio rapido e professionale di assistenza tapparellista a Bresso.';
