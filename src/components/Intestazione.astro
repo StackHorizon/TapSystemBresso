@@ -1,0 +1,76 @@
+---
+import Container from "./Container.astro"
+---
+
+<div class="relative" id="home" style="margin-top: 100px;">
+    <Container>
+        <!-- Titolo principale -->
+        <div class="lg:w-3/4 text-center mx-auto">
+            <h1 class="mt-5 text-gray-900 dark:text-gray-900 font-bold text-6xl md:text-6xl xl:text-8xl">
+                Tap System Bresso
+            </h1>
+            <p class="mt-5 text-xl text-gray-900 dark:text-gray-900 leading-relaxed">
+                Con più di 20 anni di esperienza, ci specializziamo nella progettazione, produzione e installazione di tapparelle di sicurezza in alluminio coibentato e PVC rinforzato. Le nostre soluzioni su misura garantiscono massima protezione, efficienza energetica e un design moderno, il tutto supportato da un servizio di assistenza dedicato.
+                Le nostre parole d'ordine? <strong>affidabilità, qualità e sicurezza</strong>.
+            </p>
+        </div>
+    </Container>
+</div>
+
+<style>
+    #home {
+        padding: 50px 0; /* Distanza top e bottom */
+    }
+
+    h1 {
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+    }
+
+    p {
+        letter-spacing: 1px;
+        line-height: 1.5;
+    }
+
+    /* Responsivo per schermi piccoli */
+    @media (max-width: 768px) {
+        #home {
+            padding: 80px 0; /* Distanza top e bottom */
+        }
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+    }
+
+    .value-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .value-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Ottimizzazione per grid su desktop */
+    @media (min-width: 768px) {
+        .value-item {
+            padding: 30px;
+        }
+    }
+
+    /* Effetto hover più soft */
+    .value-item h3 {
+        font-size: 1.25rem;
+        color: #2d3748; /* Grigio scuro per il testo */
+        margin-bottom: 12px;
+    }
+</style>
