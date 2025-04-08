@@ -21,6 +21,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<meta charset="UTF-8">
 	    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 	</head>
 	<body>
 	<!-- Contenuti della pagina -->
@@ -29,6 +30,50 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<Servizi />
 		<Sedi />
 		<Footer />
-
+	<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 	</body>
 </html>
+<script>
+window.addEventListener("load", function(){
+	window.cookieconsent.initialise({
+		palette: {
+			popup: { background: "#000" },
+			button: { background: "#0033f0" }
+			},
+		theme: "classic",
+		position: "bottom-right",
+		type: "opt-in", // richiede consenso esplicito
+    revokable: false, // disattiva l'icona per modificare il consenso
+    content: {
+		message: "Questo sito utilizza i cookie per migliorare l'esperienza.",
+		allow: "Accetta",
+		deny: "Rifiuta",
+		link: "Leggi di più",
+		href: "/privacy-policy"
+		},
+		showLink: true,
+		elements: {
+			allow: '<button aria-label="consenti" class="cc-btn cc-allow">{{allow}}</button>',
+			deny: '<button aria-label="rifiuta" class="cc-btn cc-deny">{{deny}}</button>'
+			},
+		onInitialise: function (status) {
+			const didConsent = this.hasConsented();
+			if (didConsent) {
+				console.log("Cookies accettati");
+				// Qui puoi caricare script di analytics o cookie di terze parti
+      } else {
+				console.log("Cookies rifiutati");
+				// Non caricare cookie non essenziali
+      }
+			},
+		onStatusChange: function(status, chosenBefore) {
+			const didConsent = this.hasConsented();
+			if (didConsent) {
+				console.log("Consenso dato");
+				} else {
+				console.log("Consenso negato");
+				}
+			}
+		});
+	});
+</script>
