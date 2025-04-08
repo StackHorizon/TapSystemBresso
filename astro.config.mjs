@@ -7,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://stackhorizon.github.io',
-	base: '/',
+	base: '/TapSystemBresso',
 	vite: {
 		plugins: [tailwindcss()],
 	},
