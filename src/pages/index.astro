@@ -49,7 +49,7 @@ window.addEventListener("load", function(){
 			allow: "Accetta",
 			deny: "Rifiuta",
 			link: "Leggi di più",
-			href: "./TapSystemBresso/privacy-policy"
+			href: "./TapSystemBresso/PrivacyPolicy"
 		},
 		showLink: true,
 		elements: {
@@ -77,6 +77,11 @@ window.addEventListener("load", function(){
 			}
 		}
 	});
+	const logoPath = document.getElementById("logoPath");
+	const url = window.location.href;
+	logoPath.src = './TapSystemBresso/logo.png';
+
+
 });
 
 // Funzione per caricare Google Analytics
@@ -91,6 +96,7 @@ function loadGoogleAnalytics() {
 	};
 	document.head.appendChild(script);
 }
+
 </script>
 
 </body>

@@ -8,6 +8,11 @@ import BaseHead from '../components/BaseHead.astro';
 <html lang="it">
 <head>
     <BaseHead title="Termini e Condizioni - Tap System Bresso" description="Condizioni d'uso del sito e dei servizi Tap System Bresso." />
+    <script>
+        const logoPath = document.getElementById("logoPath");
+        const url = window.location.href;
+        logoPath.src = './logo.png';
+    </script>
 </head>
 <body class="bg-white text-neutral-900  font-sans leading-relaxed tracking-wide">
 <Header />
@@ -81,7 +86,7 @@ import BaseHead from '../components/BaseHead.astro';
 <Footer />
 
 <!-- Bottone fisso per tornare alla homepage -->
-<a href="./TapSystemBresso" class="fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full shadow-md transition-transform transform hover:-translate-y-1 text-sm font-semibold">
+<a href="../TapSystemBresso" class="fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full shadow-md transition-transform transform hover:-translate-y-1 text-sm font-semibold">
     Torna alla homepage
 </a>
 </body>
