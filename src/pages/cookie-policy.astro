@@ -1,0 +1,62 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+---
+
+<!-- CookiePolicy.astro -->
+<html lang="it">
+<head>
+    <BaseHead title="Cookie Policy - Tap System Bresso" description="Informativa sull'uso dei cookie sul sito Tap System." />
+</head>
+<body class="bg-white text-neutral-900   font-sans leading-relaxed tracking-wide">
+<Header />
+<main class="mt-5 max-w-3xl mx-auto px-6 py-12 space-y-6">
+    <h1 class="text-4xl font-bold mb-6">Cookie Policy</h1>
+
+    <p class="text-base">
+        Questa è la nostra <strong>Cookie Policy</strong> per il sito <strong>TapSystem Bresso</strong>. Utilizziamo dei cookie per migliorare l'esperienza utente, raccogliere statistiche e per altre funzionalità, come descritto di seguito.
+    </p>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Cosa sono i cookie?</h2>
+        <p class="text-base">
+            I cookie sono piccoli file di testo che vengono inviati dal sito web al dispositivo dell'utente e memorizzati nel browser. Vengono utilizzati per raccogliere informazioni e migliorare l'esperienza utente, come la memorizzazione delle preferenze o il tracciamento delle visite al sito.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Tipologie di cookie utilizzati</h2>
+        <ul class="list-disc list-inside ml-4 text-base">
+            <li><strong>Cookie tecnici:</strong> Utilizzati per il funzionamento base del sito, come la memorizzazione delle preferenze di lingua e layout.</li>
+            <li><strong>Cookie analitici:</strong> Utilizzati per raccogliere informazioni sull'uso del sito (ad esempio, Google Analytics).</li>
+            <li><strong>Cookie di terze parti:</strong> Cookie di servizi esterni come Google Fonts, Material Icons, e Flaticon CDN per le icone e le immagini.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Come gestire i cookie?</h2>
+        <p class="text-base">
+            Puoi gestire le preferenze relative ai cookie direttamente nel tuo browser. La maggior parte dei browser consente di rifiutare o rimuovere i cookie, ma alcune funzionalità del sito potrebbero non funzionare correttamente senza di essi.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Modifiche alla Cookie Policy</h2>
+        <p class="text-base">
+            Questa Cookie Policy può essere modificata periodicamente. Ti invitiamo a rivederla regolarmente per restare aggiornato sulle modalità di trattamento dei cookie.
+        </p>
+    </section>
+
+    <p class="text-sm text-black dark:text-gray-400 mt-12">
+        Ultimo aggiornamento: 8 aprile 2025
+    </p>
+</main>
+<Footer />
+
+<!-- Bottone fisso per tornare alla homepage -->
+<a href="/" class="fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full shadow-md transition-transform transform hover:-translate-y-1 text-sm font-semibold">
+    Torna alla homepage
+</a>
+</body>
+</html>

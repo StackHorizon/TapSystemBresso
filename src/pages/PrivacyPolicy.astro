@@ -1,0 +1,88 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+---
+
+<!-- PrivacyPolicy.astro -->
+<html lang="it">
+<head>
+    <BaseHead title="Privacy Policy - Tap System Bresso" description="Informativa sulla privacy del sito Tap System." />
+</head>
+<body class="bg-white text-neutral-900  font-sans leading-relaxed tracking-wide">
+<Header />
+<main class="mt-5 max-w-3xl mx-auto px-6 py-12 space-y-6">
+    <h1 class="text-4xl font-bold mb-6 ">Privacy Policy</h1>
+
+    <p class="text-base">
+        Ai sensi del Regolamento (UE) 2016/679 (GDPR), forniamo le seguenti informazioni sul trattamento dei dati raccolti tramite il sito <strong>TapSystem Bresso</strong>.
+    </p>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Titolare del trattamento</h2>
+        <p class="text-base">
+            Tap System Bresso<br>
+            Email: <a href="mailto:tapsystembresso@gmail.com" class="text-blue-600 dark:text-blue-300 underline">tapsystembresso@gmail.com</a>
+        </p>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Dati raccolti</h2>
+        <p class="text-base">
+            Il sito non raccoglie né conserva dati personali identificabili.
+        </p>
+        <ul class="list-disc list-inside ml-4 text-base">
+            <li>Il pulsante "Chiama" apre l'app del telefono, senza raccogliere dati.</li>
+            <li>Il pulsante "Email" apre il client di posta dell’utente. Nessun messaggio o indirizzo viene memorizzato.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Analisi e statistiche</h2>
+        <p class="text-base">
+            TapSystem utilizza <strong>Google Search Console</strong> per raccogliere dati anonimi e aggregati sulle visite al sito, a fini statistici e di ottimizzazione SEO. Nessun dato personale viene tracciato.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Cookie e servizi esterni</h2>
+        <p class="text-base">Il sito utilizza cookie tecnici e di terze parti:</p>
+        <ul class="list-disc list-inside ml-4 text-base">
+            <li><strong>Google Fonts</strong> e <strong>Material Icons</strong> (per i font e le icone).</li>
+            <li><strong>Flaticon CDN</strong> per le immagini SVG.</li>
+            <li><strong>CookieConsent.js</strong> per la gestione del consenso cookie.</li>
+        </ul>
+        <p class="text-base">
+            Nessuno di questi servizi raccoglie direttamente dati personali attraverso TapSystem, ma potrebbero applicare politiche proprie. Consulta la loro <a href="https://policies.google.com/privacy" class="text-blue-600 dark:text-blue-300 underline" target="_blank">Privacy Policy</a>.
+        </p>
+        <p class="text-base">
+            Per maggiori dettagli, visita la <a href="../cookie-policy" class="text-blue-600 dark:text-blue-300 underline">Cookie Policy</a>.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Finalità e base giuridica</h2>
+        <p class="text-base">
+            I dati tecnici e aggregati sono trattati per migliorare l’esperienza utente e l’efficienza del sito, nel rispetto del legittimo interesse del titolare (art. 6 par. 1 lett. f del GDPR).
+        </p>
+    </section>
+
+    <section>
+        <h2 class="text-2xl font-semibold mt-6 mb-2">Diritti dell’utente</h2>
+        <p class="text-base">
+            L’utente può esercitare i diritti previsti dagli artt. 15-22 del GDPR (accesso, rettifica, cancellazione, limitazione, opposizione) scrivendo al titolare all’indirizzo email fornito sopra.
+        </p>
+    </section>
+
+    <p class="text-sm text-black dark:text-gray-400 mt-12">
+        Ultimo aggiornamento: 8 aprile 2025
+    </p>
+</main>
+<Footer />
+
+<!-- Bottone fisso per tornare alla homepage -->
+<a href="/" class="fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white py-2 px-5 rounded-full shadow-md transition-transform transform hover:-translate-y-1 text-sm font-semibold">
+    Torna alla homepage
+</a>
+</body>
+</html>
