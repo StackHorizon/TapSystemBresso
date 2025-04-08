@@ -32,8 +32,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <Footer />
 
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+
 <script>
-window.addEventListener("load", function () {
+window.addEventListener("load", function(){
 	window.cookieconsent.initialise({
 		palette: {
 			popup: { background: "#000" },
@@ -41,14 +42,14 @@ window.addEventListener("load", function () {
 		},
 		theme: "classic",
 		position: "bottom-right",
-		type: "opt-in",
-		revokable: false,
-		content: {
+		type: "opt-in", // richiede consenso esplicito
+            revokable: false, // disattiva l'icona per modificare il consenso
+            content: {
 			message: "Questo sito utilizza i cookie per migliorare l'esperienza.",
 			allow: "Accetta",
 			deny: "Rifiuta",
 			link: "Leggi di più",
-			href: "./privacy-policy"
+			href: "./TapSystemBresso/privacy-policy"
 		},
 		showLink: true,
 		elements: {
@@ -57,20 +58,40 @@ window.addEventListener("load", function () {
 		},
 		onInitialise: function (status) {
 			const didConsent = this.hasConsented();
-			if (!didConsent) {
-				// Disattiva script di terze parti qui se necessario
-              console.log("Cookies rifiutati");
-			}
+			if (didConsent) {
+				console.log("Cookies accettati");
+				loadGoogleAnalytics(); // Carica Google Analytics se i cookie sono accettati
+                } else {
+				console.log("Cookies rifiutati");
+				alert("Alcune funzionalità potrebbero non essere disponibili senza il consenso dei cookie.");
+				// Non caricare script non essenziali, come Google Analytics
+                }
 		},
-		onStatusChange: function (status, chosenBefore) {
+		onStatusChange: function(status, chosenBefore) {
 			const didConsent = this.hasConsented();
-			if (!didConsent) {
-				// Disattiva o previeni caricamento cookie non essenziali
-              console.log("Consenso negato");
+			if (didConsent) {
+				console.log("Consenso dato");
+				loadGoogleAnalytics(); // Carica Google Analytics se il consenso viene dato in un secondo momento
+                } else {
+				console.log("Consenso negato");
 			}
 		}
 	});
 });
+
+// Funzione per caricare Google Analytics
+function loadGoogleAnalytics() {
+	const script = document.createElement('script');
+	script.src = "https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X";
+	script.onload = () => {
+		window.dataLayer = window.dataLayer || [];
+		window.gtag = function() { dataLayer.push(arguments); };
+		gtag('js', new Date());
+		gtag('config', 'UA-XXXXXXXXX-X');
+	};
+	document.head.appendChild(script);
+}
 </script>
+
 </body>
 </html>
