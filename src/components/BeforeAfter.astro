@@ -1,0 +1,130 @@
+---
+// src/components/BeforeAfter.astro
+import Container from "./Container.astro";
+
+// Dati dei progetti di prima/dopo
+const projects = [
+    {
+        title: "Rinforzo staffa motore",
+        description: "Un brevetto per il rinforzo della staffa del motore. Un'innovazione brevettata da professionmisti come il nostro team",
+        beforeImage: "/TapSystemBresso/images/After.jpg",
+        afterImage: "/TapSystemBresso/images/Before.jpg",
+    }
+];
+---
+
+<div class="relative py-16">
+    <Container>
+        <div class="space-y-24">
+            {projects.map((project, index) => (
+                    <div class="before-after-container">
+                        <div class="text-center mb-8">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-3">{project.title}</h3>
+                            <p class="text-lg text-gray-600 max-w-2xl mx-auto">{project.description}</p>
+                        </div>
+
+                        <div class="before-after-wrapper bg-white rounded-xl shadow-xl overflow-hidden relative">
+                            <div class="before-image w-full h-full">
+                                <img src={project.beforeImage} alt="Prima" class="w-full h-full object-cover"/>
+                            </div>
+
+                            <div class="after-image w-full h-full absolute top-0 left-0 overflow-hidden"
+                                 style="width: 50%;">
+                                <img src={project.afterImage} alt="Dopo" class="w-full h-full object-cover"/>
+
+                                <div class="absolute top-0 bottom-0 right-0 w-1 bg-blue-600 shadow-lg"></div>
+
+                                <div class="slider-handle absolute top-1/2 right-0 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-blue-600 rounded-full shadow-lg flex items-center justify-center cursor-pointer z-10">
+                                    <div class="flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                                             viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M8 7h8M8 12h8m-8 5h8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="absolute top-4 left-4 bg-blue-600/80 text-white px-3 py-1 rounded-lg backdrop-blur-sm">
+                                Prima
+                            </div>
+
+                            <div class="absolute top-4 right-4 bg-green-600/80 text-white px-3 py-1 rounded-lg backdrop-blur-sm">
+                                Dopo
+                            </div>
+                        </div>
+                    </div>
+            ))}
+        </div>
+    </Container>
+</div>
+
+<style>
+    .before-after-wrapper {
+        aspect-ratio: 16/9;
+        position: relative;
+        touch-action: none; /* Migliora l'esperienza touch */
+    }
+
+    @media (max-width: 768px) {
+        .before-after-wrapper {
+            aspect-ratio: 4/3;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const containers = document.querySelectorAll('.before-after-container');
+
+        containers.forEach(container => {
+            const wrapper = container.querySelector('.before-after-wrapper') as HTMLElement;
+            const afterImage = container.querySelector('.after-image') as HTMLElement;
+            const sliderHandle = container.querySelector('.slider-handle') as HTMLElement;
+
+            let isDragging = false;
+
+            // Funzione per aggiornare la posizione dello slider
+            const updateSliderPosition = (clientX: number) => {
+                const rect = wrapper.getBoundingClientRect();
+                const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+                const percent = (x / rect.width) * 100;
+
+                afterImage.style.width = `${percent}%`;
+            };
+
+            // Eventi mouse
+            sliderHandle.addEventListener('mousedown', () => {
+                isDragging = true;
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                updateSliderPosition(e.clientX);
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            // Eventi touch per dispositivi mobili
+            sliderHandle.addEventListener('touchstart', () => {
+                isDragging = true;
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                updateSliderPosition(e.touches[0].clientX);
+            });
+
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            // Evento click sul wrapper per spostare lo slider
+            wrapper.addEventListener('click', (e) => {
+                updateSliderPosition(e.clientX);
+            });
+        });
+    });
+</script>

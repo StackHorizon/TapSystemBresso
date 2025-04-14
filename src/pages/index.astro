@@ -1,5 +1,5 @@
 ---
-import { AstroFont } from 'astro-font';
+import {AstroFont} from 'astro-font';
 
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
@@ -7,92 +7,103 @@ import Intestazione from '../components/Intestazione.astro';
 import Servizi from '../components/Servizi.astro';
 import Sedi from '../components/Sedi.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Carousel from '../components/Carousel.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
 ---
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<meta name="keywords" content="Riparazione Tapparelle elettriche Bresso, Tapparelista Bresso, Sostituzione tapparelle Bresso, Riparazione tapparelle Bresso, Riparazione e sostituzione tapparelle Bresso, Assistenza e sostituzione tapparelle Bresso">
-	<meta name="robots" content="index, follow">
-	<meta name="author" content="code22.servehttp.com">
-	<meta http-equiv="Content-Language" content="it">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="UTF-8">
-	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <meta name="keywords"
+          content="Riparazione Tapparelle elettriche Bresso, Tapparelista Bresso, Sostituzione tapparelle Bresso, Riparazione tapparelle Bresso, Riparazione e sostituzione tapparelle Bresso, Assistenza e sostituzione tapparelle Bresso">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="code22.servehttp.com">
+    <meta http-equiv="Content-Language" content="it">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"/>
 </head>
 <body class="bg-white dark:bg-gray-900">
-<Header />
+<Header/>
 <main class="space-y-20 mb-20">
-	<Intestazione />
-	<Servizi />
-	<Sedi />
+    <Intestazione/>
+    <Carousel/>
+    <BeforeAfter/>
+    <Servizi/>
+    <Sedi/>
 </main>
-<Footer />
+<Footer/>
 
 <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 
 <script>
 window.addEventListener("load", function(){
-	window.cookieconsent.initialise({
-		palette: {
-			popup: { background: "#000" },
-			button: { background: "#0033f0" }
-		},
-		theme: "classic",
-		position: "bottom-right",
-		type: "opt-in", // richiede consenso esplicito
-            revokable: false, // disattiva l'icona per modificare il consenso
-            content: {
-			message: "Questo sito utilizza i cookie per migliorare l'esperienza.",
-			allow: "Accetta",
-			deny: "Rifiuta",
-			link: "Leggi di più",
-			href: "./TapSystemBresso/PrivacyPolicy"
-		},
-		showLink: true,
-		elements: {
-			allow: '<button aria-label="consenti" class="cc-btn cc-allow">{{allow}}</button>',
-			deny: '<button aria-label="rifiuta" class="cc-btn cc-deny">{{deny}}</button>'
-		},
-		onInitialise: function (status) {
-			const didConsent = this.hasConsented();
-			if (didConsent) {
-				console.log("Cookies accettati");
-				loadGoogleAnalytics(); // Carica Google Analytics se i cookie sono accettati
-                } else {
-				console.log("Cookies rifiutati");
-				alert("Alcune funzionalità potrebbero non essere disponibili senza il consenso dei cookie.");
-				// Non caricare script non essenziali, come Google Analytics
-                }
-		},
-		onStatusChange: function(status, chosenBefore) {
-			const didConsent = this.hasConsented();
-			if (didConsent) {
-				console.log("Consenso dato");
-				loadGoogleAnalytics(); // Carica Google Analytics se il consenso viene dato in un secondo momento
-                } else {
-				console.log("Consenso negato");
-			}
-		}
-	});
+    window.cookieconsent.initialise({
+        palette: {
+            popup: {background: "#000"},
+            button: {background: "#0033f0"}
+        },
+        theme: "classic",
+        position: "bottom-right",
+        type: "opt-in", // richiede consenso esplicito
 
+        revokable: false, // disattiva l'icona per modificare il consenso
+
+        content: {
+            message: "Questo sito utilizza i cookie per migliorare l'esperienza.",
+            allow: "Accetta",
+            deny: "Rifiuta",
+            link: "Leggi di più",
+            href: "./TapSystemBresso/PrivacyPolicy"
+        },
+        showLink: true,
+        elements: {
+            allow: '<button aria-label="consenti" class="cc-btn cc-allow">{{allow}}</button>',
+            deny: '<button aria-label="rifiuta" class="cc-btn cc-deny">{{deny}}</button>'
+        },
+        onInitialise: function (status) {
+            const didConsent = this.hasConsented();
+            if (didConsent) {
+                console.log("Cookies accettati");
+                loadGoogleAnalytics(); // Carica Google Analytics se i cookie sono accettati
+
+            } else {
+                console.log("Cookies rifiutati");
+                alert("Alcune funzionalità potrebbero non essere disponibili senza il consenso dei cookie.");
+                // Non caricare script non essenziali, come Google Analytics
+
+            }
+        },
+        onStatusChange: function (status, chosenBefore) {
+            const didConsent = this.hasConsented();
+            if (didConsent) {
+                console.log("Consenso dato");
+                loadGoogleAnalytics(); // Carica Google Analytics se il consenso viene dato in un secondo momento
+
+            } else {
+                console.log("Consenso negato");
+            }
+        }
+    });
 
 
 });
 
 // Funzione per caricare Google Analytics
 function loadGoogleAnalytics() {
-	const script = document.createElement('script');
-	script.src = "https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X";
-	script.onload = () => {
-		window.dataLayer = window.dataLayer || [];
-		window.gtag = function() { dataLayer.push(arguments); };
-		gtag('js', new Date());
-		gtag('config', 'UA-XXXXXXXXX-X');
-	};
-	document.head.appendChild(script);
+    const script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X";
+    script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+            dataLayer.push(arguments);
+        };
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXXXXX-X');
+    };
+    document.head.appendChild(script);
 }
 
 </script>
