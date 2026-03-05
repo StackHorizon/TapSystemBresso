@@ -14,32 +14,20 @@ import Container from "./Container.astro"
                 Le nostre parole d'ordine? <strong>affidabilità, qualità e sicurezza</strong>.
             </p>
         </div>
-
-        <!-- Carosello automatico
-        <div class="mt-16 relative overflow-hidden rounded-2xl shadow-lg">
-            <div id="carouselTrack" class="flex transition-transform duration-700 ease-in-out w-full">
-                <div class="min-w-full">
-                    <img src="/images/tapparella1.jpg" alt="Tapparella 1" class="w-full h-[250px] object-cover" />
-                </div>
-                <div class="min-w-full">
-                    <img src="/images/tapparella2.jpg" alt="Tapparella 2" class="w-full h-[250px] object-cover" />
-                </div>
-                <div class="min-w-full">
-                    <img src="/images/tapparella3.jpg" alt="Tapparella 3" class="w-full h-[250px] object-cover" />
-                </div>
-            </div>
-        </div>
-         -->
+ 
     </Container>
 </div>
 
-<script>
-    let index = 0;
+<script> 
     const track = document.getElementById("carouselTrack");
-    const slides = track.children.length;
+    
+    if (track && track.children.length > 0) {
+        let index = 0;
+        const slides = track.children.length;
 
-    setInterval(() => {
-        index = (index + 1) % slides;
-        track.style.transform = `translateX(-${index * 100}%)`;
-    }, 4000); // Cambia ogni 4 secondi
+        setInterval(() => {
+            index = (index + 1) % slides;
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }, 4000);
+    }
 </script>
